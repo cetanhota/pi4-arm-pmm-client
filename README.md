@@ -17,10 +17,19 @@ make release
 ```
 
 ### Compile node_exporter
+```
+cd ~/percona/node_exporter
+make build
+```
 
 ### Compile pmm-agent
 Before we can compile the pmm-agent we need to make a change to the Makefile.
 
+```
+cd ~/percona/pmm-agent
+vi Makefile
+
+```
 Around line 27 you should see:
 ```
 env CGO_ENABLED=1 go build -v -ldflags "-extldflags '-static' $(VERSION_FLAGS)" -tags 'osusergo netgo static_build' -o $(PMM_RELEASE_PATH)/pmm-agent
@@ -32,7 +41,6 @@ env GOARCH=arm64 CGO_ENABLED=1 go build -v -ldflags "-extldflags '-static' $(VER
 ```
 
 ```
-cd ~/percona/pmm-agent
 make release
 ```
 
