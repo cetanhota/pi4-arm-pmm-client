@@ -28,8 +28,8 @@ Before we can compile the pmm-agent we need to make a change to the Makefile.
 ```
 cd ~/percona/pmm-agent
 vi Makefile
-
 ```
+
 Around line 27 you should see:
 ```
 env CGO_ENABLED=1 go build -v -ldflags "-extldflags '-static' $(VERSION_FLAGS)" -tags 'osusergo netgo static_build' -o $(PMM_RELEASE_PATH)/pmm-agent
@@ -50,3 +50,11 @@ ldd bin/pmm-agent
 	not a dynamic executable
 make: [Makefile:29: release] Error 1 (ignored)
 ```
+
+## The compile of tools is complete 
+
+You can find the compiled binary at these locations
+```
+~/percona/pmm-admin/bin/pmm-admin
+~/pmm-agent/bin/pmm-agent
+~/node_exporter/node_exporter
